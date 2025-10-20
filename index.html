@@ -198,11 +198,11 @@
       errNumero.style.display = 'none';
       errTitulo.style.display = 'none';
 
-      const numVal = numeroEl.value;
+      const numVal = numeroEl.value.replace(",", ".");
       const tituloVal = tituloEl.value.trim();
 
-      if(!numVal || isNaN(Number(numVal)) || Number(numVal) < 1){
-        errNumero.textContent = " Informe um número inteiro >= 1";
+      if(!numVal || isNaN(Number(numVal)) || Number(numVal) < 0){
+        errNumero.textContent = " Informe um número >= 0";
         errNumero.style.display = 'inline';
         ok = false;
       }
@@ -219,17 +219,18 @@
     adicionarBtn.addEventListener('click', () => {
       if(!validar()) return;
 
-      const episode_number = Number(numeroEl.value);
+      const episode_number = Number(numeroEl.value.replace(",", "."));
       const name = tituloEl.value.trim();
       const date_upload = formatDateIso(dataEl.value);
       const scanlator = scanEl.value.trim();
 
       const item = {
         episode_number: episode_number,
-        name: name,
-        date_upload: date_upload,
-        scanlator: scanlator
+        name: name
       };
+
+      if (date_upload) {item.date_upload = date_upload};
+      if (scanlator) {item.scanlator = scanlator};
 
       episodes.push(item);
 
@@ -237,7 +238,6 @@
       numeroEl.value = '';
       tituloEl.value = '';
       dataEl.value = '';
-      scanEl.value = '';
       numeroEl.focus();
 
       updateResultado();
