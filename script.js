@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 // array que guardará os episódios
 let episodes = [];
 
@@ -99,6 +98,3 @@ limparBtn.addEventListener('click', () => {
 
 // Exibir estado inicial
 updateResultado();
-=======
-
->>>>>>> 7f5e077b0ef2b33b4b79b6f5d37f959bdd998c75
