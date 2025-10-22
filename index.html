@@ -28,20 +28,24 @@
       </div>
 
       <div class="field">
-        <label for="scan">Scanlator (opcional)</label>
-        <input id="scan" type="text" placeholder="Ex: ScanTeam" />
+        <label for="scan">Dublagem (opcional)</label>
+        <input id="scan" type="text" placeholder="Ex: Fandub BR" />
       </div>
 
       <div class="actions full">
         <button id="adicionarBtn" type="button">Adicionar</button>
-        <button id="baixarBtn" type="button" class="secondary">Baixar Resultado</button>
+        <button id="baixarBtn" type="button" class="secondary">Baixar</button>
         <button id="limparBtn" type="button" class="secondary" title="Limpa toda a lista">Limpar</button>
       </div>
     </form>
 
     <h4>Resultado</h4>
+    <ul id="lista"></ul>
     <pre id="resultado">[]</pre>
   </main>
+  <footer>
+    <p>Powered by GitHub</p>
+  </footer>
   <script src="script.js"></script>
 </body>
 </html>
