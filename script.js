@@ -11,6 +11,7 @@ const resultadoEl = document.getElementById('resultado');
 const listaEl = document.getElementById('lista');
 const errNumero = document.getElementById('err-numero');
 const errTitulo = document.getElementById('err-titulo');
+const addBtnEl = document.getElementById('adicionarBtn');
 
 // formatação ISO simples: se tiver data, retorna "YYYY-MM-DDT00:00:00"
 function formatDateIso(dateStr) {
@@ -69,6 +70,7 @@ function editarItem(index) {
   dataEl.value = ep.date_upload ? ep.date_upload.split("T")[0] : '';
   scanEl.value = ep.scanlator || '';
   editIndex = index;
+  addBtnEl.textContent = 'Salvar';
 }
 
 function removerItem(index) {
@@ -95,15 +97,18 @@ document.getElementById('adicionarBtn').addEventListener('click', () => {
   if (editIndex !== null) {
     episodes[editIndex] = item;
     editIndex = null;
+    addBtnEl.textContent = 'Adicionar';
+    numeroEl.value = '';
   } else {
     episodes.push(item);
+    numeroEl.value = Number(numeroEl.value || 0) + 1;
   }
+  
+  episodes.sort((a, b) => a.episode_number - b.episode_number);
 
-  numeroEl.value = '';
   tituloEl.value = '';
   dataEl.value = '';
-  numeroEl.focus();
-
+  tituloEl.focus();
   updateResultado();
 });
 
