@@ -144,6 +144,7 @@ ul#lista button {
 }
 
 footer {
+  display: none
   position: fixed;
   bottom: 10px;
   left: 50%;
