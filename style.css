@@ -143,17 +143,6 @@ ul#lista button {
   margin-left: 5px;
 }
 
-footer {
-  display: none
-  position: fixed;
-  bottom: 10px;
-  left: 50%;
-  transform: translateX(-50%);
-  color: #94a3b8;
-  font-size: 14px;
-  text-align: center;
-}
-
 .error {
   color: #ffb4b4;
   font-size: 13px;
